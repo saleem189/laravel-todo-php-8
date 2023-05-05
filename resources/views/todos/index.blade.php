@@ -36,24 +36,19 @@
 
 @else
    <a type="button" class="btn btn-success mb-2"
-    onclick="event.preventDefault();
-    document.getElementById('form-complete-{{$todo->id}}').submit()">Check</a>
+    onclick="event.preventDefault(); document.getElementById('form-complete-{{$todo->id}}').submit()">Check</a>
 
-<form method="post" id="{{'form-complete-'.$todo->id}}" 
-    action="{{route('todo.complete',$todo->id)}}" style="display: none">
+<form method="post" id="{{'form-complete-'.$todo->id}}" action="{{route('todo.complete',$todo->id)}}" style="display: none">
    @csrf
    @method('put')
 </form>
 @endif
 
 <a type="button" class="btn btn-warning mb-2"
-    onclick="event.preventDefault();
-   if(confirm('Are you really want to Delete?')){
-    document.getElementById('form-delete-{{$todo->id}}').submit()}">Delete</a>
+    onclick="event.preventDefault();if(confirm('Are you really want to Delete?')){document.getElementById('form-delete-{{$todo->id}}').submit()}">Delete</a>
    
 
-<form method="post" id="{{'form-delete-'.$todo->id}}" 
-    action="{{route('todo.destroy',$todo->id)}}" style="display: none">
+<form method="post" id="{{'form-delete-'.$todo->id}}" action="{{route('todo.destroy',$todo->id)}}" style="display: none">
     @csrf
     @method('delete')
 </form>
